@@ -24,8 +24,48 @@ object Collection {
     println(triple._5)
   }
 
-  def main(args: Array[String]): Unit = {
-    tuple()
+
+  /**
+    * Array(数组)，一种数据结，
+    * 其中存储相同类型的元素的固定大小的连续集合。
+    * 数组用于存储数据的集合，
+    * 但它往往是更加有用认为数组作为相同类型的变量的集合。
+    */
+  def array():Unit ={
+    val array =Array(2,4,6,8,10);
+    for (i <- 0 until(array.length)){
+      print(array(i));
+    }
+
+    for(element<-array) {
+      println(element)
+    }
   }
+
+  /**
+    * Map是键/值对的集合。
+    * 任何值可以根据它的键进行检索。
+    * 键是在映射唯一的，
+    * 但值不是唯一的。
+    * 映射也被称为哈希表。
+    */
+  def map():Unit={
+      val books =Map("java"->"《Java编程思想》、《JavaWeb技术内幕》","JavaScript"->"《JavaScript权威指南》","Oracle"->"《从入门到精通》")
+      for ((key,value)<-books){
+        println("类型:"+key+"====>书名"+value);
+      }
+
+      for ((key,_)<-books){
+        println("类型:=====>"+key)
+      }
+  }
+
+  def main(args: Array[String]): Unit = {
+    //tuple()
+    //array()
+    map();
+  }
+
+
 
 }
