@@ -1,5 +1,7 @@
 package chapter02
 
+import scala.io.{Source, StdIn}
+
 object BasicScala {
 
   /**
@@ -18,6 +20,7 @@ object BasicScala {
     }
     return x;
   }
+
 
 
   /**
@@ -91,12 +94,67 @@ object BasicScala {
     *
     */
 
+  def readFile()={
+    lazy val file=Source.fromFile("/Users/zhouguimin/IdeaProjects/spark/spark-warehouse/person.txt");
+    println("===========scala=======")
+    for (line <- file.getLines()){
+      println(line)
+    }
+
+
+  }
+
+
+  /**
+    * 2 控制程序流程
+    * 2.1 if else
+    */
+
+  def min(x:Int ,y:Int):Int={
+    if(x<y){
+      return x;
+    }
+    return y;
+  }
+
+
+  /**
+    *
+    * 2.2
+    * while循环
+    *
+    */
+  def While()={
+    var x = 100
+    var y = 298
+    while ( {
+      x != 0
+    }) {
+      val temp = x
+      x = y % x
+      y = temp
+    }
+  }
+
+  /**
+    * 与while循环所不同的是，它先执行一次循环语句，然后再去判断
+    */
+  def doWhile(): Unit ={
+    var line = "";
+    do {
+      println("doWhile：请输入信息，退出程序请输入：\"\"");
+      line = StdIn();
+      println("输入的内容：" + line);
+    } while(line != "");
+  }
+
 
 
   def main(args: Array[String]): Unit = {
 
-    println(connected(1,2,3,4,5));
+    //println(connected(1,2,3,4,5));
 
+    readFile();
   }
 
 }
