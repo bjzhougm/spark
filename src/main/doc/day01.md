@@ -1,7 +1,7 @@
 ## Null、null、 Nothing、 Nil、 None和Unit
 
-### Null and null
-* 空（Null）是一个trait，它（如果你不熟悉trait）有点像Java中的抽象类。
+* Null and null
+空（Null）是一个trait，它（如果你不熟悉trait）有点像Java中的抽象类。
 确实存在一个空的实例，那是空的。
 字面null与Java中的相同。
 它是不引用任何对象的引用的值。
