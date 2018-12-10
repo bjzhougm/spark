@@ -143,7 +143,7 @@ object BasicScala {
     var line = "";
     do {
       println("doWhile：请输入信息，退出程序请输入：\"\"");
-      line = StdIn();
+      line = ""// StdIn();
       println("输入的内容：" + line);
     } while(line != "");
   }

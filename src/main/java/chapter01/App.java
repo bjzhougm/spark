@@ -1,5 +1,6 @@
 package chapter01;
 
+import lombok.Data;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -11,8 +12,11 @@ import org.apache.spark.api.java.function.VoidFunction;
 import org.apache.spark.storage.StorageLevel;
 import scala.Tuple2;
 import org.apache.spark.api.java.Optional;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class App{
@@ -23,18 +27,11 @@ public class App{
 
         // convert from other RDD
         JavaRDD<String> line1 = sc.parallelize(Arrays.asList("1 aa", "2 bb", "4 cc", "3 dd"));
-        JavaPairRDD<String, String> prdd;
-        prdd = line1.mapToPair(new PairFunction<String, String, String>() {
-            public Tuple2<String, String> call(String x) throws Exception {
-                return new Tuple2(x.split(" ")[0], x);
-            }
-        });
+
+        JavaPairRDD<String, String> prdd = line1.mapToPair((PairFunction<String, String, String>) x -> new Tuple2(x.split(" ")[0], x));
+
         System.out.println("111111111111mapToPair:");
-        prdd.foreach(new VoidFunction<Tuple2<String, String>>() {
-            public void call(Tuple2<String, String> x) throws Exception {
-                System.out.println(x);
-            }
-        });
+        prdd.foreach((VoidFunction<Tuple2<String, String>>) x -> System.out.println(x));
 
         // parallelizePairs
         Tuple2 t1 = new Tuple2(1, 2);
@@ -137,5 +134,25 @@ public class App{
                 System.out.println(x);
             }
         });
+    }
+
+    @Data
+    static class AvgCount {
+
+        public Integer total;
+
+        public Integer num;
+
+        public AvgCount(Integer x,Integer y){ }
+
+        public String avg(){
+            return "";
+        }
+    }
+
+    static class MyComparator implements Comparator<Integer>, Serializable {
+        public int compare(Integer x, Integer y) {
+            return -(y-x);
+        }
     }
 }
