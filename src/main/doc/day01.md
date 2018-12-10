@@ -1,10 +1,7 @@
-<!-- MarkdownTOC -->
-- [1. Null和null的区别](#1.Null和null)
-<!-- /MarkdownTOC -->
+## 1 Null、null、 Nothing、 Nil、 None和Unit的区别
 
-## Null、null、 Nothing、 Nil、 None和Unit的区别
-### 1.Null和null的区别
-  
+#### 1.Null和null的区别  
+
   **Null**  Null是一个trait，它（如果你不熟悉trait）有点像Java中的抽象类。
 确实存在一个空的实例，那是空的。
 
