@@ -1,16 +1,17 @@
 <!-- MarkdownTOC -->
-
+- [1. Null和null的区别](#1.Null和null)
 <!-- /MarkdownTOC -->
 
 ## Null、null、 Nothing、 Nil、 None和Unit的区别
-### Null和null
+### 1.Null和null的区别
   
-  **Null**  空(Null)是一个trait，它（如果你不熟悉trait）有点像Java中的抽象类。
+  **Null**  Null是一个trait，它（如果你不熟悉trait）有点像Java中的抽象类。
 确实存在一个空的实例，那是空的。
 
   **null** 字面null与Java中的相同。它是不引用任何对象的引用的值。
   
-#### 因此，如果您编写一个采用Null类型参数的方法，则只能传递两个值：null本身或Null类型的引用。
+  因此，如果您编写一个采用Null类型参数的方法，则只能传递两个值：null本身或Null类型的引用。
+  
 ```
 scala> def tryit(thing: Null): Unit = { println("That worked!"); }
 tryit: (Null)Unit
