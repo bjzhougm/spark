@@ -18,7 +18,7 @@ object DataFrameRDDApp {
   def program(spark: SparkSession)={
 
     //RDD=>DataFrame
-    val rdd = spark.sparkContext.textFile("/Users/zhouguimin/IdeaProjects/spark/spark-warehouse/person.txt");
+    val rdd = spark.sparkContext.textFile("/Users/zhouguimin/IdeaProjects/spark/src/main/resources/person.txt");
 
     val rowRDD = rdd.map(_.split(",")).map(p => Row(p(0).toInt, p(1), p(2).toInt));
 
@@ -37,7 +37,7 @@ object DataFrameRDDApp {
    def inferReflection(spark: SparkSession) = {
 
      //RDD=>DataFrame
-     val rdd = spark.sparkContext.textFile("/Users/zhouguimin/IdeaProjects/spark/spark-warehouse/person.txt");
+     val rdd = spark.sparkContext.textFile("/Users/zhouguimin/IdeaProjects/spark/src/main/resources/person.txt");
 
      import spark.implicits._
      val infoDF = rdd.map(_.split(",")).map(p => Info(p(0).toInt, p(1), p(2).toInt)).toDF();

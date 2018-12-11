@@ -29,7 +29,7 @@ public class DataFrameRDD {
     private static void program(SparkSession spark) {
 
         JavaRDD<String> peopleRDD = spark.sparkContext()
-                .textFile("/Users/zhouguimin/IdeaProjects/spark/spark-warehouse/person.txt", 1)
+                .textFile("/Users/zhouguimin/IdeaProjects/spark/src/main/resources/person.txt", 1)
                 .toJavaRDD();
 
 
@@ -69,7 +69,7 @@ public class DataFrameRDD {
     private static void Reflection(SparkSession spark) {
         //从文本文件中创建一个person的RDD
         JavaRDD<Person> personRDD = spark.read()
-                .textFile("/Users/zhouguimin/IdeaProjects/spark/spark-warehouse/person.txt")
+                .textFile("/Users/zhouguimin/IdeaProjects/spark/src/main/resources/person.txt")
                 .javaRDD()
                 .map(line->{
                     String[] parts =line.split(",");

@@ -2,6 +2,7 @@ package chapter02
 
 import scala.io.{Source, StdIn}
 
+
 object BasicScala {
 
   /**
@@ -149,12 +150,62 @@ object BasicScala {
   }
 
 
+  /**
+    * for循环是开界的，它的一般形式为： for(; <条件表达式>; )语句；
+    * 初始化总是一个赋值语句,它用来给循环控制变量赋初值；
+    * 条件表达式是一个关系表达式,它决定什么时候退出循环：
+    */
+  def forX(): Unit ={
+    for(x<-1 to 10)
+      println("num is  "+x)
+  }
+
+
+  def doubleForX(){
+    for(i<- 1.to(2);j<-1.to(2)){
+      print((i*100+j)+" ");
+    }
+  }
+
+  // for循环嵌套;加条件
+  def doubleforx(){
+    for(i<- 1.to(2);j<-1.to(2);if(i!=j)){
+      print((i*100+j)+" ");
+    }
+  }
+
+
+  /**
+    * scala可以在方法名前通过@throws(classOf[ArithmeticException])
+    * 来指定抛出指定的异常
+    * 也可以throw 抛出异常 throw关键字主要用于抛出自定义异常
+    * @param a
+    * @param b
+    */
+  //@throws(classOf[ArithmeticException])
+  def divide(a:Int, b:Int) = {
+    try{
+      a/b
+      if(a<b)
+        throw new ArithmeticException("You are not eligible")
+      var arr = Array(1,2)
+      arr(10)
+    }catch{
+      case e: ArithmeticException => println(e)
+      case ex: Exception =>println(ex)
+      case th: Throwable=>println("found a unknown exception"+th)
+      case _ => println("Unknown exception")
+    }
+    finally{
+      println("Finaly block always executes")
+    }
+    println("Rest of the code is executing...")
+  }
 
   def main(args: Array[String]): Unit = {
 
-    //println(connected(1,2,3,4,5));
+    divide(100,0)
 
-    readFile();
   }
 
 }
