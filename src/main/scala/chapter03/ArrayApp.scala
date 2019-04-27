@@ -74,7 +74,7 @@ object ArrayApp {
 
     //for循环便利元素
     for(i<- 0 until(buffer.length)){
-      println(i +"buffer value ===:" +buffer(i))
+      println(i +"   buffer value ===:" +buffer(i))
     }
 
     // 在第2个元素后添加多个元素

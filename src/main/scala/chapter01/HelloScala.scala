@@ -13,7 +13,7 @@ object HelloScala {
     *
     * 静态类型：Scala是具备类型系统，通过编译时的检查，保证代码的安全性和一致性。
     *
-    * 良好并发机制：Scala把Erlang风格的基于actor的并发带进了JVM。开发者可以利用Scala的actor模型在JVM上设计具伸缩性的并发应用程序，它会自动获得多核心处理器带来的优势，而不必依照复杂的Java线程模型来编写程序。
+    * 良好并发机制：Scala把erLang风格的基于actor的并发带进了JVM。开发者可以利用Scala的actor模型在JVM上设计具伸缩性的并发应用程序，它会自动获得多核心处理器带来的优势，而不必依照复杂的Java线程模型来编写程序。
     *
     * @param args
     */
