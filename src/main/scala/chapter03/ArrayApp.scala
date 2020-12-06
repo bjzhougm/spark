@@ -78,7 +78,7 @@ object ArrayApp {
     }
 
     // 在第2个元素后添加多个元素
-    buffer.insert(2, 7,8,9)
+    //buffer.insert(2, 7,8,9)
 
     //> res6: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(1, 1, 7, 8, 9, 6, 2)
 
