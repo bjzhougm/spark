@@ -34,7 +34,7 @@ object ArrayApp {
 
     //打印 strArray
 
-    for(i<- 0 until(strArray.length)){
+    for(i<- strArray.indices){
       println(i +" strArray value ====:" +strArray(i))
     }
 
